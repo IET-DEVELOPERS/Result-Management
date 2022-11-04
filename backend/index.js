@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
-const port = process.env.PORT_COUSTOM || 5050;
+const port = 5050;
 const bp = require("body-parser");
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
