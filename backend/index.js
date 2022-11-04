@@ -6,6 +6,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
+
+const adminRoutes=require('./routes/adminRoutes')
+
 const port = 5050;
 const bp = require("body-parser");
 app.use(bp.json());
@@ -16,6 +19,8 @@ app.get("/", (req, res) => {
   res.send("result management");
 });
 
+app.use('/api/admin',adminRoutes);
+
 app.listen(port, () => {
-  console.log(`server fired on port but you are asshole ${port}`);
+  console.log(`server fired on port ${port}`);
 });
