@@ -1,6 +1,7 @@
 const Admin=require('../models/adminModel');
 const asyncHandler = require('express-async-handler');
 const bcrypt=require('bcryptjs');
+
 const registerAdmin=asyncHandler ( async (req,res)=>{
     
     let name=req.body.name
@@ -33,5 +34,22 @@ const registerAdmin=asyncHandler ( async (req,res)=>{
         res.status(400);
         throw new Error("Cant Create Admin");
    }
+});
+
+const loginAdmin=asyncHandler(async (req,res)=>{
+    const email=req.body.email;
+    const password=req.body.password;
+
+    const admin=await Admin.findOne({email});
+    if(!admin){
+        res.status(400);
+        throw new Error("Oppss!! No Admin Exists");
+    }
+    const hashedPassword=admin.password;
+    if(! await bcrypt.compare(password,hashedPassword)){
+        res.status(400);
+        throw new Error("Invalid Username or Password!!");
+    }
 })
+
 module.exports={registerAdmin};
