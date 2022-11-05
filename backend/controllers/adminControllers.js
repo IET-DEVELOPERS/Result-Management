@@ -1,16 +1,10 @@
-const Admin=require('../models/adminModel');
-const asyncHandler = require('express-async-handler');
-const bcrypt=require('bcryptjs');
-const registerAdmin=asyncHandler ( async (req,res)=>{
-    
-    let name=req.body.name
-    let email=req.body.email
-    let password=req.body.password
-    
-    if(!name || !email  || !password){
-        res.status(400);
-        throw new Error("Please Enter all the fields");
-    }
+const Admin = require("../models/Admin");
+const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
+const registerAdmin = asyncHandler(async (req, res) => {
+  let name = req.body.name;
+  let email = req.body.email;
+  let password = req.body.password;
 
   const adminExists = await Admin.findOne({ email: email });
   if (adminExists) {
@@ -29,9 +23,9 @@ const registerAdmin=asyncHandler ( async (req,res)=>{
 
   if (admin) {
     res.status(201).json(admin);
-   }else{
-        res.status(400);
-        throw new Error("Cant Create Admin");
-   }
-})
-module.exports={registerAdmin};
+  } else {
+    res.status(400);
+    throw new Error("Cant Create Admin");
+  }
+});
+module.exports = { registerAdmin };
