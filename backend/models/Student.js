@@ -4,6 +4,7 @@ const StudSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
+    default: "Test",
   },
   rollNo: {
     type: String,
@@ -12,18 +13,22 @@ const StudSchema = mongoose.Schema({
   enrlNo: {
     type: String,
     required: true,
+    default: "Test",
   },
   email: {
     type: String,
     required: true,
+    default: "Test",
   },
   sem: {
     type: Number,
     required: true,
+    default: "Test",
   },
   branch: {
     type: String,
     required: true,
+    default: "Test",
   },
 });
 
