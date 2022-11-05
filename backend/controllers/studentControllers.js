@@ -25,6 +25,7 @@ const viewResult = asyncHandler(async (req, res) => {
 });
 
 const allStudents = asyncHandler(async (req, res) => {
+  console.log(req.query);
   const sem = req.query.sem;
   const branch = req.query.branch;
   const studData = await Student.find({ sem: sem, branch: branch });
