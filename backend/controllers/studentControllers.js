@@ -24,6 +24,16 @@ const viewResult = asyncHandler(async (req, res) => {
   }
 });
 
+const allStudents = asyncHandler(async (req, res) => {
+  const sem = req.query.sem;
+  const branch = req.query.branch;
+  const studData = await Student.find({ sem: sem, branch: branch });
+
+  // console.log(studData);
+
+  res.send(studData);
+});
+
 const addStudent = asyncHandler(async (req, res) => {
   const name = req.body.name;
   const rollNo = req.body.rollNo;
@@ -60,4 +70,4 @@ const addStudent = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { viewResult, addStudent };
+module.exports = { viewResult, addStudent, allStudents };
