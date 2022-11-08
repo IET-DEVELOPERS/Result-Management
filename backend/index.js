@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
+<<<<<<< HEAD
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
@@ -17,10 +18,18 @@ const bp = require("body-parser");
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(express.json());
+=======
+const adminRoutes=require('./routes/adminRoutes')
+const studentRoutes=require('./routes/studentRoutes')
+const port=5050;
+>>>>>>> 045a99755c09c0330fdac3ffd2f25004beea479a
 
 app.get("/", (req, res) => {
   res.send("result management");
 });
+// app.get("/lavda",verifyToken,(req, res) => {
+//   res.send("Token Verify karne ke lie request!!");
+// });
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/student", studentRoutes);
