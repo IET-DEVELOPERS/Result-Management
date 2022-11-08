@@ -9,6 +9,8 @@ connectDB();
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
+const syllabusRoutes = require("./routes/syllabusRoutes");
+const resultRoutes = require("./routes/resultRoutes");
 
 const port = 5050;
 const bp = require("body-parser");
@@ -22,6 +24,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/student", studentRoutes);
+app.use("/api/syllabus", syllabusRoutes);
+app.use("/api/result", resultRoutes);
 
 app.listen(port, () => {
   console.log(`server fired on port ${port}`);

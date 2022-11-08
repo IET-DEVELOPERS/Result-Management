@@ -10,28 +10,28 @@ const SyllabusSchema = mongoose.Schema({
     required: true,
   },
   subject1: {
-    type: [String],
+    type: Array,
   },
   subject2: {
-    type: [String],
+    type: Array,
   },
   subject3: {
-    type: [String],
+    type: Array,
   },
   subject4: {
-    type: [String],
+    type: Array,
   },
   subject5: {
     type: [String],
   },
   subject6: {
-    type: [String],
+    type: Array,
   },
   subject7: {
-    type: [String],
+    type: Array,
   },
   compViva: {
-    type: [String],
+    type: Array,
   },
 });
 
