@@ -2,6 +2,10 @@ const Student = require("../models/Student");
 const Result = require("../models/Result");
 const asyncHandler = require("express-async-handler");
 
+// const getStudent = asyncHandler(async (req, res) => {
+
+// });
+
 const viewResult = asyncHandler(async (req, res) => {
   const rollNo = req.params.rollNo;
 
