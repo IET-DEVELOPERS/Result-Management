@@ -3,7 +3,14 @@ const Student = require("../models/Student");
 const asyncHandler = require("express-async-handler");
 const { json } = require("express");
 
-const addSyllabus = asyncHandler(async (req, res) => {});
+const addSyllabus = asyncHandler(async (req, res) => {
+  const syllabus=await Syllabus.create(req.body);
+  if(syllabus){
+    res.status(200).json(syllabus);
+  }
+  throw new Error("Syllbus upload nahi hua :/")
+
+});
 
 const getSyllabusandStudent = asyncHandler(async (req, res) => {
   const rno = req.params.rno;
@@ -31,4 +38,4 @@ const getSyllabusandStudent = asyncHandler(async (req, res) => {
   // res.send(syllabus, studData.name, studData.rollNo);
 });
 
-module.exports = { getSyllabusandStudent };
+module.exports = { getSyllabusandStudent,addSyllabus };

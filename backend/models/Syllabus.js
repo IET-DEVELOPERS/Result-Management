@@ -22,7 +22,7 @@ const SyllabusSchema = mongoose.Schema({
     type: Array,
   },
   subject5: {
-    type: [String],
+    type: Array,
   },
   subject6: {
     type: Array,
