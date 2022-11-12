@@ -14,14 +14,15 @@ const viewResult = asyncHandler(async (req, res) => {
     throw new Error("Please Enter Correct Roll Number");
   } else {
     const studData = await Student.findOne({ rollNo: rollNo });
-    const resData = await Result.findOne({ studRollNo: rollNo });
+    const resData = await Result.findOne({ studRollNo: rollNo }).select(
+      "-studRollNo"
+    );
 
     delete resData.studRollNo;
 
     res.status(200).json({
       name: studData.name,
-      // rollNo: studData.rollNo,
-
+      rollNo: studData.rollNo,
       enrlNo: studData.enrlNo,
       sem: studData.sem,
       branch: studData.branch,
