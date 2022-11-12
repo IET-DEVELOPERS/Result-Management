@@ -9,11 +9,13 @@ const StudSchema = mongoose.Schema({
   rollNo: {
     type: String,
     required: true,
+    unique: true,
   },
   enrlNo: {
     type: String,
     required: true,
     default: "Test",
+    unique: true,
   },
   email: {
     type: String,

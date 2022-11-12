@@ -14,16 +14,19 @@ const viewResult = asyncHandler(async (req, res) => {
     throw new Error("Please Enter Correct Roll Number");
   } else {
     const studData = await Student.findOne({ rollNo: rollNo });
+    const resData = await Result.findOne({ studRollNo: rollNo });
 
-    // console.log(studData);
+    delete resData.studRollNo;
 
     res.status(200).json({
       name: studData.name,
-      rollNo: studData.rollNo,
+      // rollNo: studData.rollNo,
+
       enrlNo: studData.enrlNo,
-      email: studData.email,
       sem: studData.sem,
       branch: studData.branch,
+      resData: resData,
+      StudentCGPA: resData.CGPA,
     });
   }
 });

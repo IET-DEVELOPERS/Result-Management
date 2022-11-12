@@ -41,7 +41,7 @@ const addResult = asyncHandler(async (req, res) => {
     totalCredits += syllabus[0].subject1[2] * 10;
 
     if (result.sub1theo.length > 0) {
-      subject1[2] = syllabus[0].subject1[2];
+      subject1[2] = result.sub1theo;
       if (result.sub1theo == "O") {
         score += syllabus[0].subject1[3] * 10;
       }
@@ -69,7 +69,7 @@ const addResult = asyncHandler(async (req, res) => {
     }
 
     if (result.sub1prac.length > 0) {
-      subject1[3] = syllabus[0].subject1[3];
+      subject1[3] = result.sub1prac;
       if (result.sub1prac == "O") {
         score += syllabus[0].subject1[4] * 10;
       }
@@ -104,7 +104,7 @@ const addResult = asyncHandler(async (req, res) => {
     subject2[1] = syllabus[0].subject2[1];
 
     if (result.sub1theo.length > 0) {
-      subject2[2] = syllabus[0].subject2[2];
+      subject2[2] = result.sub2theo;
 
       if (result.sub2theo == "O") {
         score += syllabus[0].subject2[3] * 10;
@@ -133,7 +133,7 @@ const addResult = asyncHandler(async (req, res) => {
     }
 
     if (result.sub2prac.length > 0) {
-      subject2[3] = syllabus[0].subject2[3];
+      subject2[3] = result.sub2prac;
       if (result.sub2prac == "O") {
         score += syllabus[0].subject2[4] * 10;
       }
@@ -168,7 +168,7 @@ const addResult = asyncHandler(async (req, res) => {
     totalCredits += syllabus[0].subject3[2] * 10;
 
     if (result.sub3theo.length > 0) {
-      subject3[2] = syllabus[0].subject3[2];
+      subject3[2] = result.sub3theo;
       if (result.sub3theo == "O") {
         score += syllabus[0].subject3[3] * 10;
       }
@@ -196,7 +196,7 @@ const addResult = asyncHandler(async (req, res) => {
     }
 
     if (result.sub3prac.length > 0) {
-      subject3[3] = syllabus[0].subject3[3];
+      subject3[3] = result.sub3prac;
       if (result.sub3prac == "O") {
         score += syllabus[0].subject3[4] * 10;
       }
@@ -231,7 +231,7 @@ const addResult = asyncHandler(async (req, res) => {
     totalCredits += syllabus[0].subject4[2] * 10;
 
     if (result.sub4theo.length > 0) {
-      subject4[2] = syllabus[0].subject4[2];
+      subject4[2] = result.sub4theo;
       if (result.sub4theo == "O") {
         score += syllabus[0].subject4[3] * 10;
       }
@@ -259,7 +259,7 @@ const addResult = asyncHandler(async (req, res) => {
     }
 
     if (result.sub4prac.length > 0) {
-      subject4[3] = syllabus[0].subject4[3];
+      subject4[3] = result.sub4prac;
       if (result.sub4prac == "O") {
         score += syllabus[0].subject4[4] * 10;
       }
@@ -294,7 +294,7 @@ const addResult = asyncHandler(async (req, res) => {
     totalCredits += syllabus[0].subject5[2] * 10;
 
     if (result.sub5theo.length > 0) {
-      subject5[2] = syllabus[0].subject5[2];
+      subject5[2] = result.sub5theo;
       if (result.sub5theo == "O") {
         score += syllabus[0].subject5[3] * 10;
       }
@@ -322,7 +322,7 @@ const addResult = asyncHandler(async (req, res) => {
     }
 
     if (result.sub5prac.length > 0) {
-      subject5[3] = syllabus[0].subject5[3];
+      subject5[3] = result.sub5prac;
       if (result.sub5prac == "O") {
         score += syllabus[0].subject5[4] * 10;
       }
@@ -357,7 +357,7 @@ const addResult = asyncHandler(async (req, res) => {
     totalCredits += syllabus[0].subject6[2] * 10;
 
     if (result.sub6theo.length > 0) {
-      subject6[2] = syllabus[0].subject6[2];
+      subject6[2] = result.sub6theo;
       if (result.sub6theo == "O") {
         score += syllabus[0].subject6[3] * 10;
       }
@@ -385,7 +385,7 @@ const addResult = asyncHandler(async (req, res) => {
     }
 
     if (result.sub6prac.length > 0) {
-      subject6[3] = syllabus[0].subject6[3];
+      subject6[3] = result.sub6prac;
       if (result.sub6prac == "O") {
         score += syllabus[0].subject6[4] * 10;
       }
@@ -413,65 +413,65 @@ const addResult = asyncHandler(async (req, res) => {
     }
   }
 
-  if (syllabus[0].subject6.length > 0) {
-    subject6[0] = syllabus[0].subject6[0];
-    subject6[1] = syllabus[0].subject6[1];
+  if (syllabus[0].subject7.length > 0) {
+    subject7[0] = syllabus[0].subject7[0];
+    subject7[1] = syllabus[0].subject7[1];
 
-    totalCredits += syllabus[0].subject6[2] * 10;
+    totalCredits += syllabus[0].subject7[2] * 10;
 
-    if (result.sub6theo.length > 0) {
-      subject6[2] = syllabus[0].subject6[2];
-      if (result.sub6theo == "O") {
-        score += syllabus[0].subject6[3] * 10;
+    if (result.sub7theo.length > 0) {
+      subject7[2] = result.sub7theo;
+      if (result.sub7theo == "O") {
+        score += syllabus[0].subject7[3] * 10;
       }
-      if (result.sub6theo == "A+") {
-        score += syllabus[0].subject6[3] * 9;
+      if (result.sub7theo == "A+") {
+        score += syllabus[0].subject7[3] * 9;
       }
-      if (result.sub6theo == "A") {
-        score += syllabus[0].subject6[3] * 8;
+      if (result.sub7theo == "A") {
+        score += syllabus[0].subject7[3] * 8;
       }
-      if (result.sub6theo == "B+") {
-        score += syllabus[0].subject6[3] * 7;
+      if (result.sub7theo == "B+") {
+        score += syllabus[0].subject7[3] * 7;
       }
-      if (result.sub6theo == "B") {
-        score += syllabus[0].subject6[3] * 6;
+      if (result.sub7theo == "B") {
+        score += syllabus[0].subject7[3] * 6;
       }
-      if (result.sub6theo == "C") {
-        score += syllabus[0].subject6[3] * 5;
+      if (result.sub7theo == "C") {
+        score += syllabus[0].subject7[3] * 5;
       }
-      if (result.sub6theo == "P") {
-        score += syllabus[0].subject6[3] * 4;
+      if (result.sub7theo == "P") {
+        score += syllabus[0].subject7[3] * 4;
       }
-      if (result.sub6theo == "F") {
-        score += syllabus[0].subject6[3] * 3;
+      if (result.sub7theo == "F") {
+        score += syllabus[0].subject7[3] * 3;
       }
     }
 
-    if (result.sub6prac.length > 0) {
-      subject6[3] = syllabus[0].subject6[3];
-      if (result.sub6prac == "O") {
-        score += syllabus[0].subject6[4] * 10;
+    if (result.sub7prac.length > 0) {
+      subject7[3] = result.sub7prac;
+      if (result.sub7prac == "O") {
+        score += syllabus[0].subject7[4] * 10;
       }
-      if (result.sub6prac == "A+") {
-        score += syllabus[0].subject6[4] * 9;
+      if (result.sub7prac == "A+") {
+        score += syllabus[0].subject7[4] * 9;
       }
-      if (result.sub6prac == "A") {
-        score += syllabus[0].subject6[4] * 8;
+      if (result.sub7prac == "A") {
+        score += syllabus[0].subject7[4] * 8;
       }
-      if (result.sub6prac == "B+") {
-        score += syllabus[0].subject6[4] * 7;
+      if (result.sub7prac == "B+") {
+        score += syllabus[0].subject7[4] * 7;
       }
-      if (result.sub6prac == "B") {
-        score += syllabus[0].subject6[4] * 6;
+      if (result.sub7prac == "B") {
+        score += syllabus[0].subject7[4] * 6;
       }
-      if (result.sub6prac == "C") {
-        score += syllabus[0].subject6[4] * 5;
+      if (result.sub7prac == "C") {
+        score += syllabus[0].subject7[4] * 5;
       }
-      if (result.sub6prac == "P") {
-        score += syllabus[0].subject6[4] * 4;
+      if (result.sub7prac == "P") {
+        score += syllabus[0].subject7[4] * 4;
       }
-      if (result.sub6prac == "F") {
-        score += syllabus[0].subject6[4] * 3;
+      if (result.sub7prac == "F") {
+        score += syllabus[0].subject7[4] * 3;
       }
     }
   }
@@ -483,7 +483,7 @@ const addResult = asyncHandler(async (req, res) => {
     totalCredits += syllabus[0].compViva[2] * 10;
 
     if (result.cvprac.length > 0) {
-      cv[3] = syllabus[0].compViva[3];
+      cv[3] = result.cvprac;
       if (result.cvprac == "O") {
         score += syllabus[0].compViva[4] * 10;
       }
