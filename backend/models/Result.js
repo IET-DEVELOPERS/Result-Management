@@ -4,6 +4,7 @@ const ResultSchema = mongoose.Schema({
   studRollNo: {
     type: String,
     required: true,
+    unique: true,
   },
 
   subject1: {
