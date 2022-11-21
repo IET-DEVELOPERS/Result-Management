@@ -534,7 +534,7 @@ const addResult = asyncHandler(async (req, res) => {
     // res.status(200).json(studData);
   } else {
     res.status(400);
-    throw new Error("Couldn't Create Student");
+    throw new Error("Couldn't Get Result");
   }
 });
 
