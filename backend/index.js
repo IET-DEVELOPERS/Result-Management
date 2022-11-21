@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const dotenv = require("dotenv");
+const cors = require("cors");
 dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
@@ -14,6 +15,7 @@ const resultRoutes = require("./routes/resultRoutes");
 
 const port = 5050;
 const bp = require("body-parser");
+app.use(cors());
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(express.json());
