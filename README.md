@@ -8,6 +8,11 @@ RMS is a Full Stack result management webApp used for managing college result wi
 
 * Database: Mongo DB
 
+
+ * Authentication: JWT and Bcrypt
+ * Mailing: NodeMailer
+ * PDF Creation: Puppeter
+
 * Backend Help: Postman 
 
 * COde Editor: VS COde
