@@ -4,16 +4,17 @@ const asyncHandler = require("express-async-handler");
 const { json } = require("express");
 
 const addSyllabus = asyncHandler(async (req, res) => {
-  const syllabus=await Syllabus.create(req.body);
-  if(syllabus){
+  const syllabus = await Syllabus.create(req.body);
+  if (syllabus) {
     res.status(200).json(syllabus);
   }
-  throw new Error("Syllbus upload nahi hua :/")
-
+  throw new Error("Syllbus upload nahi hua :/");
 });
 
 const getSyllabusandStudent = asyncHandler(async (req, res) => {
-  const rno = req.params.rno;
+  let rno = req.params.rno;
+  rno = rno.toUpperCase();
+  // console.log(rno);
   let studData;
   if (!req.params.rno || rno.length != 7) {
     res.status(400);
@@ -21,6 +22,8 @@ const getSyllabusandStudent = asyncHandler(async (req, res) => {
   } else {
     studData = await Student.findOne({ rollNo: rno });
   }
+
+  // console.log(studData);
 
   const branch = studData.branch;
 
@@ -38,4 +41,4 @@ const getSyllabusandStudent = asyncHandler(async (req, res) => {
   // res.send(syllabus, studData.name, studData.rollNo);
 });
 
-module.exports = { getSyllabusandStudent,addSyllabus };
+module.exports = { getSyllabusandStudent, addSyllabus };

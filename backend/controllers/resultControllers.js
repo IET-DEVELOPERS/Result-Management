@@ -4,8 +4,9 @@ const asyncHandler = require("express-async-handler");
 const Result = require("../models/Result");
 
 const addResult = asyncHandler(async (req, res) => {
-  const rno = req.params.rno;
-
+  let rno = req.params.rno;
+  rno = rno.toUpperCase();
+  console.log(rno);
   let studData;
   if (!req.params.rno || rno.length != 7) {
     res.status(400);
@@ -14,6 +15,7 @@ const addResult = asyncHandler(async (req, res) => {
     studData = await Student.findOne({ rollNo: rno });
   }
 
+  console.log(studData);
   const branch = studData.branch;
 
   const sem = studData.sem;
@@ -39,6 +41,8 @@ const addResult = asyncHandler(async (req, res) => {
     subject1[1] = syllabus[0].subject1[1];
 
     totalCredits += syllabus[0].subject1[2] * 10;
+
+    // console.log(result);
 
     if (result.sub1theo.length > 0) {
       subject1[2] = result.sub1theo;

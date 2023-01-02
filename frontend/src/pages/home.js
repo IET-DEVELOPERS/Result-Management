@@ -1,69 +1,40 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
+import "../Css/homestyles.css";
 
-const Login = () => {
-  let [email, setEmail] = useState("");
-  let [pass, setPass] = useState("");
-  const navi = useNavigate();
-  useEffect(() => {
-    const a = localStorage.getItem("user");
-    if (a) {
-      navi("/");
-    }
-  }, []);
-  const signin = async () => {
-    //console.warn( email, pass);
+const logo = require("../images/logo.png");
 
-    let result = await fetch("http://localhost:3500/login", {
-      method: "post",
-      body: JSON.stringify({ email, pass }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    result = await result.json();
-
-    console.warn(result);
-
-    if (result.name) {
-      localStorage.setItem("user", JSON.stringify(result));
-      if (result) {
-        navi("/");
-      }
-    } else {
-      alert("Enter Correct USerNAme PAssWord");
-      setEmail("");
-      setPass("");
-    }
+const home = () => {
+  const View = () => {
+    redirect("/ViewResult");
   };
 
-  const reg = () => {
-    navi("/register");
-  };
+  const Admin = () => {};
   return (
-    <div className="regform">
-      <h2>Login Page</h2>
-      <input
-        placeholder="Enter Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      ></input>
-      <input
-        placeholder="Enter Password"
-        type="password"
-        value={pass}
-        onChange={(e) => setPass(e.target.value)}
-      ></input>
-      <button type="button" onClick={signin}>
-        Login
-      </button>
-      <button type="button" onClick={reg} className="regbut">
-        Register
-      </button>
-    </div>
+    <>
+      <div className="header">
+        <img src={logo} className="img"></img>
+        <br></br>
+
+        <h2>WELCOME TO THE RESULT PORTAL</h2>
+      </div>
+      <div className="nav">
+        <div className="inner">
+          <ul>
+            <li className="l11">
+              <a href="/AdminLog">Continue as Admin</a>
+            </li>
+            <li>
+              <a href="/ViewResult">Continue as Student</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="header2">
+        <h2>Created by IET-DEVELOPERS</h2>
+      </div>
+    </>
   );
 };
 
-export default Login;
+export default home;

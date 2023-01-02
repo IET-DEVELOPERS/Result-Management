@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../Css/viewResultCss.css";
 import { useState, useEffect } from "react";
 import {} from "react-router-dom";
 
@@ -109,8 +109,9 @@ function View() {
 
     if (res.status === 400) {
       alert("Pdf not sent");
+    } else {
+      alert("Pdf sent");
     }
-
     res = await res.json();
   };
   return (
