@@ -1,7 +1,7 @@
 const Admin = require("../models/Admin");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
-const jwt=require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const registerAdmin = asyncHandler(async (req, res) => {
   let name = req.body.name;
@@ -31,29 +31,31 @@ const registerAdmin = asyncHandler(async (req, res) => {
   }
 });
 
-const loginAdmin=asyncHandler(async(req,res)=>{
-    const email=req.body.email;
-    const password=req.body.password;
+const loginAdmin = asyncHandler(async (req, res) => {
+  const email = req.body.userName;
+  const password = req.body.password;
 
-    const admin=await Admin.findOne({email:email});
-    if(!admin){
-      res.status(400);
-      throw new Error("Oppss!! No Admin Exists");
+  const admin = await Admin.findOne({ email: email });
+  if (!admin) {
+    res.status(400);
+    throw new Error("Oppss!! No Admin Exists");
   }
-  const hashedPassword=admin.password;
-  if(! await bcrypt.compare(password,hashedPassword)){
-      res.status(400);
-      throw new Error("Invalid Username or Password!!");
+  const hashedPassword = admin.password;
+  if (!(await bcrypt.compare(password, hashedPassword))) {
+    res.status(400);
+    throw new Error("Invalid Username or Password!!");
   }
-    const token=jwt.sign({
-      id:admin._id,
-  },
-  "snehil"
-  ,{
-      expiresIn:"10d"
-  })
+  const token = jwt.sign(
+    {
+      id: admin._id,
+    },
+    "snehil",
+    {
+      expiresIn: "10d",
+    }
+  );
 
-  res.status(201).json({admin,token});  
-})
+  res.status(201).json({ Name: admin.name, Email: admin, email, token });
+});
 
-module.exports = { registerAdmin,loginAdmin };
+module.exports = { registerAdmin, loginAdmin };

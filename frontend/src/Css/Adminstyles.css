@@ -1,0 +1,108 @@
+.l1{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(77, 148, 255);
+    margin: 0px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    color: azure;
+    font-size: 1em;
+    border-bottom: 3px solid black;
+}
+
+.l1 li {
+    margin:5px  20px;
+}
+.l1 li a {
+    background-color: rgb(77, 148, 255);
+    color: white;
+}
+.l1 li a:hover{
+    background-color: rgb(77, 148, 255);
+    color: black;
+}
+
+.onthis{
+    color: black;
+}
+
+.listno2{
+list-style: none;
+    display: flex;
+    flex-direction: row;
+   border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(77, 148, 255);
+    font-size: 1em;
+}
+
+.listno2 li{
+    margin: 10px;
+    
+}
+.listno2 label{
+    margin: 10px;
+    font-size: 1.8em;
+}
+
+.listno2 select{
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(77, 148, 255);
+    color: rgb(77, 148, 255);
+}
+.btn1{
+    margin: 10px;
+}
+
+.unordl1{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-left: 20vw;
+}
+
+.unordl1 li{
+    padding: 20px;
+    border: 1px solid black;
+    width: 100px;
+}
+
+.unordl1 li a {
+   font-size: 1.2em;
+   color: white;
+   background-color: rgb(77, 148, 255);
+   padding: 5px;
+   padding-left: 0px;
+   padding-right: 10px;
+   border-radius: 5px;
+}
+
+.unordl1 li a:hover {
+    font-size: 1.2em;
+    color: rgb(77, 148, 255);
+    background-color: white;
+    padding: 5px;
+    border: 1px solid rgb(77, 148, 255);
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.unordl12 {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-left: 20vw;
+}
+.unordl12 li {
+    padding: 10px;
+    border: 1px solid black;
+    width: 120px;
+    background-color: rgb(121, 244, 83);
+    font-weight: 700;
+}
