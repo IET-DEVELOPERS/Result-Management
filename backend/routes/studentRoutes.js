@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.post("/view", viewResult);
 router.post("/save", savepdf);
-router.post("/addnew", addStudent);
+router.post("/addnew", verifyToken, addStudent);
 //localhost:5050/api/student/all/?sem=4&branch=CS
-router.get("/all", allStudents);
+router.get("/all", verifyToken, allStudents);
 
 module.exports = router;

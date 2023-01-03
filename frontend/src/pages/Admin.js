@@ -10,6 +10,9 @@ const Admin = () => {
   const [addStud, setAddStud] = useState(false);
 
   const show = async () => {
+    let user = localStorage.getItem("Admin");
+    user = JSON.parse(user);
+
     if (branch === "" || branch === "Select") {
       alert("select a branch");
     }
@@ -23,6 +26,7 @@ const Admin = () => {
         method: "get",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
       }
     );

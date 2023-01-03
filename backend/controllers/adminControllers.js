@@ -49,9 +49,9 @@ const loginAdmin = asyncHandler(async (req, res) => {
     {
       id: admin._id,
     },
-    "snehil",
+    process.env.JWT,
     {
-      expiresIn: "10d",
+      expiresIn: "20m",
     }
   );
 

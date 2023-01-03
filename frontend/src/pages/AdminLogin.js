@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import "../Css/Adminstyles.css";
 const logo = require("../images/logo.png");
+const back = require("../images/back.jpg");
 
 const Admin = () => {
+  localStorage.removeItem("Admin");
   let navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +38,9 @@ const Admin = () => {
   return (
     <div>
       <div className="header">
+        <a href="/">
+          <img src={back} className="img2" />
+        </a>
         <img src={logo} className="img"></img>
         <br></br>
 

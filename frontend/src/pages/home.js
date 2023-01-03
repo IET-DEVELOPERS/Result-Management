@@ -5,11 +5,15 @@ import "../Css/homestyles.css";
 const logo = require("../images/logo.png");
 
 const home = () => {
+  localStorage.removeItem("Admin");
   const View = () => {
-    redirect("/ViewResult");
+    localStorage.removeItem("Admin");
+    // redirect("/ViewResult");
   };
 
-  const Admin = () => {};
+  const Admin = () => {
+    localStorage.removeItem("Admin");
+  };
   return (
     <>
       <div className="header">
@@ -22,10 +26,14 @@ const home = () => {
         <div className="inner">
           <ul>
             <li className="l11">
-              <a href="/AdminLog">Continue as Admin</a>
+              <a href="/AdminLog" onClick={Admin}>
+                Continue as Admin
+              </a>
             </li>
             <li>
-              <a href="/ViewResult">Continue as Student</a>
+              <a href="/ViewResult" onClick={View}>
+                Continue as Student
+              </a>
             </li>
           </ul>
         </div>
