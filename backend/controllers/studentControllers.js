@@ -67,13 +67,13 @@ const savepdf = asyncHandler(async (req, res) => {
   let mailTransport = mailer.createTransport({
     service: "gmail",
     auth: {
-      user: "ietdevelopers@gmail.com",
-      pass: "kkvjpvowuadjuijm",
+      user: process.env.MAILID,
+      pass: process.env.MAILPASS,
     },
   });
 
   let details = {
-    from: "ietdevelopers@gmail.com",
+    from: process.env.MAILID,
     to: email,
     subject: `${sem}th Sem Result`,
     text: "You Result ",

@@ -13,7 +13,7 @@ const studentRoutes = require("./routes/studentRoutes");
 const syllabusRoutes = require("./routes/syllabusRoutes");
 const resultRoutes = require("./routes/resultRoutes");
 
-const port = 5050;
+const port = process.env.PORT;
 const bp = require("body-parser");
 app.use(cors());
 app.use(bp.json());
