@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import { useState, useEffect } from "react";
+import PrivComp from "./components/privateComponents";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import View from "./pages/viewResult";
 import UpdateResult from "./pages/UpdateResult";
@@ -16,9 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/ViewResult" element={<View />}></Route>
-        <Route path="/UpdateResult" element={<UpdateResult />}></Route>
         <Route path="/AdminLog" element={<AdminLogin />}></Route>
-        <Route path="/Admin" element={<Admin />}></Route>
+        <Route element={<PrivComp></PrivComp>}>
+          <Route path="/UpdateResult" element={<UpdateResult />}></Route>
+          <Route path="/Admin" element={<Admin />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

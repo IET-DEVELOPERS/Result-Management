@@ -29,9 +29,9 @@ form {
     flex-direction: column;
     align-items: center;
     
-    padding-top: 80px;
+    padding-top: 40px;
 background-color: rgb(230, 240, 255);
-height: 66vh;
+height: 68vh;
     
 }
 
@@ -87,6 +87,22 @@ button:hover {
     background-color: rgb(121, 244, 83);
     padding: 2px;
     border-top: 3px solid black;
-    margin-top: -5.5vh;
+    margin-top: -5.2vh;
   
+}
+.header a {
+    background-color: rgb(121, 244, 83);
+    border: 0px;
+    display: flex;
+    width: fit-content;
+    padding: 2px;
+
+}
+.header a:hover{
+    background-color: rgb(121, 244, 83);
+    border: 0px;
+    display: flex;
+    border: 1px solid blue;
+    border-radius: 50%;
+    padding: 1px;
 }

@@ -16,6 +16,8 @@ const AddStudModal = ({ open, set }) => {
   };
 
   let addStudent = async () => {
+    let user = localStorage.getItem("Admin");
+    user = JSON.parse(user);
     let res = await fetch("http://localhost:5050/api/student/addnew", {
       method: "post",
       body: JSON.stringify({
@@ -28,6 +30,7 @@ const AddStudModal = ({ open, set }) => {
       }),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
     });
 
