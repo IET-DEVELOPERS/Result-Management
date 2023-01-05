@@ -8,10 +8,10 @@ const verifyToken = async (req, res, next) => {
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
-    console.log("hello!!");
+    // console.log("hello!!");
     try {
       token = req.headers.authorization.split(" ")[1];
-      console.log(token);
+      // console.log(token);
       //decodes token id
       const decoded = jwt.verify(token, process.env.JWT);
       console.log(decoded.id);

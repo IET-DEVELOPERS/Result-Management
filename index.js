@@ -20,17 +20,21 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("result management");
-});
-// app.get("/lavda",verifyToken,(req, res) => {
-//   res.send("Token Verify karne ke lie request!!");
-// });
-
 app.use("/api/admin", adminRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/syllabus", syllabusRoutes);
 app.use("/api/result", resultRoutes);
+
+app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "/frontend/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 
 app.listen(port, () => {
   console.log(`server fired on port ${port}`);
