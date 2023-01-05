@@ -136,11 +136,11 @@ function View() {
         </button>
       )}
 
-      {data && (
+      {/* {data && (
         <button type="button" className="btn" onClick={save}>
           Send to Email
         </button>
-      )}
+      )} */}
       {data && (
         <p>
           <ul className="list">
