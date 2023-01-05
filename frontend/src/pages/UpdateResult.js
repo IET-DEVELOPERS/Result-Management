@@ -27,7 +27,7 @@ const UpdateResult = () => {
   const [cv, setCV] = useState("");
 
   let update = async () => {
-    let Result = await fetch("http://localhost:5050/api/student/view", {
+    let Result = await fetch("/api/student/view", {
       method: "post",
       body: JSON.stringify({ rollNo }),
       headers: {
@@ -45,15 +45,12 @@ const UpdateResult = () => {
       setResult(Result);
     }
 
-    let res = await fetch(
-      `http://localhost:5050/api/syllabus/getsyllabus/${rollNo}`,
-      {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let res = await fetch(`/api/syllabus/getsyllabus/${rollNo}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     res = await res.json();
 
