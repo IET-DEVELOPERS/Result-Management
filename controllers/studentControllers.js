@@ -104,6 +104,7 @@ const savepdf = asyncHandler(async (req, res) => {
 const viewResult = asyncHandler(async (req, res) => {
   let rollNo = req.body.rollNo;
   rollNo = rollNo.toUpperCase();
+  console.log(rollNo);
 
   if (!req.body.rollNo || rollNo.length != 7) {
     res.status(400);
