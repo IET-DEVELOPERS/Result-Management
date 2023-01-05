@@ -10,6 +10,7 @@ const Admin = () => {
   const [addStud, setAddStud] = useState(false);
 
   const show = async () => {
+    // console.log("hello");
     let user = localStorage.getItem("Admin");
     user = JSON.parse(user);
 
@@ -21,7 +22,7 @@ const Admin = () => {
     }
 
     let students = await fetch(
-      `http://localhost:5050/api/student/all?branch=${branch}&sem=${semester}`,
+      `api/student/all?branch=${branch}&sem=${semester}`,
       {
         method: "get",
         headers: {

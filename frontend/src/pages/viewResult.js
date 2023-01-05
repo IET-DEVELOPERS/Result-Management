@@ -31,7 +31,7 @@ function View() {
   const signin = async () => {
     //console.warn( email, pass);
 
-    let result = await fetch("http://localhost:5050/api/student/view", {
+    let result = await fetch("/api/student/view", {
       method: "post",
       body: JSON.stringify({ rollNo }),
       headers: {
@@ -82,7 +82,7 @@ function View() {
   };
 
   const save = async () => {
-    let res = await fetch("http://localhost:5050/api/student/save", {
+    let res = await fetch("/api/student/save", {
       method: "post",
       body: JSON.stringify({
         s1,
@@ -136,11 +136,11 @@ function View() {
         </button>
       )}
 
-      {data && (
+      {/* {data && (
         <button type="button" className="btn" onClick={save}>
           Send to Email
         </button>
-      )}
+      )} */}
       {data && (
         <p>
           <ul className="list">
