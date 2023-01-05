@@ -70,7 +70,7 @@ const UpdateResult = () => {
     user = JSON.parse(user);
 
     // console.log(JSON.parse(user).Name);
-    let res = await fetch(`http://localhost:5050/api/result/addRes/${rollNo}`, {
+    let res = await fetch(`/api/result/addRes/${rollNo}`, {
       method: "post",
       body: JSON.stringify({
         sub1prac: sub1prac,

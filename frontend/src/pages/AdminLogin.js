@@ -12,7 +12,7 @@ const Admin = () => {
   const [password, setPassword] = useState("");
 
   const login = async () => {
-    let r = await fetch("http://localhost:5050/api/admin/login", {
+    let r = await fetch("/api/admin/login", {
       method: "post",
       body: JSON.stringify({ userName, password }),
       headers: {

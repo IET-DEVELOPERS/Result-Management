@@ -136,6 +136,41 @@ const viewResult = asyncHandler(async (req, res) => {
   }
 });
 
+const viewAllResult = asyncHandler(async (req, res) => {
+  let rollNo = req.body.rollNo;
+  rollNo = rollNo.toUpperCase();
+
+  if (!req.body.rollNo || rollNo.length != 7) {
+    res.status(400);
+    throw new Error("Please Enter Correct Roll Number");
+  } else {
+    const studData = await Student.findOne({ enrlNo: rollNo });
+    const resData = await Result.findOne({ studRollNo: rollNo }).select(
+      "-studRollNo"
+    );
+
+    if (!studData || !resData) {
+      res.status(400);
+      throw new Error("User do not exist");
+    }
+
+    // delete resData.studRollNo;
+
+    // console.log("result sent");
+
+    res.status(200).json({
+      name: studData.name,
+      rollNo: studData.rollNo,
+      enrlNo: studData.enrlNo,
+      sem: studData.sem,
+      email: studData.email,
+      branch: studData.branch,
+      resData: resData,
+      StudentCGPA: resData.CGPA,
+    });
+  }
+});
+
 const allStudents = asyncHandler(async (req, res) => {
   console.log(req.query);
   const sem = req.query.sem;
@@ -185,4 +220,10 @@ const addStudent = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { viewResult, addStudent, allStudents, savepdf };
+module.exports = {
+  viewResult,
+  viewAllResult,
+  addStudent,
+  allStudents,
+  savepdf,
+};
